@@ -28,6 +28,8 @@ public class Ticket {
 	private boolean ischild;
 	
 	private Cashier cashier;
+	
+	//
 
 	public Ticket(String purchasedatetime, Trip trip, float price, boolean ischild, Cashier cashier) {
 		this.purchasedatetime = purchasedatetime;
