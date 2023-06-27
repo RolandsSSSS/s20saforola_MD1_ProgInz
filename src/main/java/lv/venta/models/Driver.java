@@ -49,4 +49,10 @@ public class Driver extends Person{
 		this.categories = categories;
 	}
 	
+	public void addTrip(Trip inputTrip) {
+		if(!trips.contains(inputTrip)) {
+			trips.add(inputTrip);
+		}
+	}
+	
 }

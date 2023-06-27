@@ -61,4 +61,9 @@ public class Trip {
 		this.duration = duration;
 	}
 	
+	public void addCity(City inputCity) {
+		if (!cities.contains(inputCity)) {
+			cities.add(inputCity);
+		}
+	}
 }
