@@ -1,22 +1,40 @@
 package lv.venta.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
+import jakarta.persistence.Column;
+import jakarta.validation.constraints.NotNull;
+import jakarta.persistence.MappedSuperclass;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-@Table(name = "person_table")
-@Entity
+@MappedSuperclass
 @Getter
 @Setter
 @ToString
-@AllArgsConstructor
+@NoArgsConstructor
 public class Person {
 	
+	@Column(name = "Name")
+	@NotNull
+	@Pattern(regexp = "[A-ZĒŪĪĻĶŠĀŽČŅ]{1}[a-zēūīļķšāžčņ\\ ]+", message = "Pirmajam burtam jābūt lielajam")
+	@Size(min = 3, max = 15)
 	private String name;
 	
+	@Column(name = "Surname")
+	@NotNull
+	@Pattern(regexp = "[A-ZĒŪĪĻĶŠĀŽČŅ]{1}[a-zēūīļķšāžčņ\\ ]+", message = "Pirmajam burtam jābūt lielajam")
+	@Size(min = 3, max = 15)
 	private String surname;
-	
+
+	public Person(
+			@NotNull @Pattern(regexp = "[A-ZĒŪĪĻĶŠĀŽČŅ]{1}[a-zēūīļķšāžčņ\\ ]+", message = "Pirmajam burtam jābūt lielajam") @Size(min = 3, max = 15) String name,
+			@NotNull @Pattern(regexp = "[A-ZĒŪĪĻĶŠĀŽČŅ]{1}[a-zēūīļķšāžčņ\\ ]+", message = "Pirmajam burtam jābūt lielajam") @Size(min = 3, max = 15) String surname) {
+		super();
+		this.name = name;
+		this.surname = surname;
+	}
+
 }
