@@ -94,10 +94,10 @@ public class S20saforolaMd1ProgInzApplication {
 				Rei4.add(ci5);
 				
 				
-				Trip t1 = new Trip(Rei1, d4, "13/05/2023 12:00", (float) 0.6);
-				Trip t2 = new Trip(Rei4, d2, "21/06/2023 13:00", (float) 5.2);
-				Trip t3 = new Trip(Rei2, d3, "09/04/2023 11:00", (float) 3.8);
-				Trip t4 = new Trip(Rei3, d1, "18/06/2023 16:00", (float) 1.3);
+				Trip t1 = new Trip(Rei1, d4, "13/05/2023", (float) 0.6);
+				Trip t2 = new Trip(Rei4, d2, "21/06/2023", (float) 5.2);
+				Trip t3 = new Trip(Rei2, d3, "09/04/2023", (float) 3.8);
+				Trip t4 = new Trip(Rei3, d1, "28/06/2023", (float) 1.3);
 				tripRepo.save(t1);
 				tripRepo.save(t2);
 				tripRepo.save(t3);
@@ -108,7 +108,7 @@ public class S20saforolaMd1ProgInzApplication {
 				Ticket tc2 = new Ticket("13/05/2023 10:00", t1, (float) 0.00, true, c1);
 				Ticket tc3 = new Ticket("21/06/2023 12:00", t2, (float) 14.99, false, c3);
 				Ticket tc4 = new Ticket("09/04/2023 09:00", t3, (float) 6.99, false, c4);
-				Ticket tc5 = new Ticket("18/06/2023 14:00", t4, (float) 3.99, false, c2);
+				Ticket tc5 = new Ticket("28/06/2023 14:00", t4, (float) 3.99, false, c2);
 				ticketRepo.save(tc1);
 				ticketRepo.save(tc2);
 				ticketRepo.save(tc3);
