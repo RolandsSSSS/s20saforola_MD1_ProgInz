@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 
 import lv.venta.models.Buscategory;
 import lv.venta.models.Cashier;
@@ -25,7 +26,7 @@ public class S20saforolaMd1ProgInzApplication {
 		SpringApplication.run(S20saforolaMd1ProgInzApplication.class, args);
 	}
 	
-	//@Bean // izsauks funkciju automatiski, kad startesies sistema
+	@Bean // izsauks funkciju automatiski, kad startesies sistema
 	public CommandLineRunner testModel(ICashierRepo cashierRepo, ICityRepo cityRepo, IDriverRepo driverRepo, ITicketRepo ticketRepo, ITripRepo tripRepo) {
 		
 		return new CommandLineRunner() {

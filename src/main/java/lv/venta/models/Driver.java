@@ -34,7 +34,7 @@ public class Driver extends Person{
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long idd;
 	
-	@NotBlank
+	@NotNull
 	@Column(name = "Categories")
 	private Buscategory categories;
 	
