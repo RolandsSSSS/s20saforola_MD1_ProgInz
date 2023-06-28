@@ -3,16 +3,13 @@ package lv.venta.services;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cglib.core.Local;
 
 import lv.venta.models.City;
 import lv.venta.models.Driver;
 import lv.venta.models.Trip;
-import lv.venta.repos.ICityRepo;
 import lv.venta.repos.IDriverRepo;
 import lv.venta.repos.ITripRepo;
 

@@ -109,11 +109,13 @@ public class S20saforolaMd1ProgInzApplication {
 				Ticket tc3 = new Ticket("21/06/2023 12:00", t2, (float) 14.99, false, c3);
 				Ticket tc4 = new Ticket("09/04/2023 09:00", t3, (float) 6.99, false, c4);
 				Ticket tc5 = new Ticket("28/06/2023 14:00", t4, (float) 3.99, false, c2);
+				Ticket tc6 = new Ticket("28/06/2023 12:00", t4, (float) 0.00, true, c2);
 				ticketRepo.save(tc1);
 				ticketRepo.save(tc2);
 				ticketRepo.save(tc3);
 				ticketRepo.save(tc4);
 				ticketRepo.save(tc5);
+				ticketRepo.save(tc6);
 				
 			}
 		};
