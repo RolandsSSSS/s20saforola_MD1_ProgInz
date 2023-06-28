@@ -13,5 +13,7 @@ public interface ITripService {
 	List<Trip> selectAllTripsToday();
 	
 	void changeTripDriverByDriverId(long idtr, long idd);
+
+	List<Trip> selectAllTrips();
 	
 }

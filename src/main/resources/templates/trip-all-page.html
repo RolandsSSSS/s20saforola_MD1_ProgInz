@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>All Trips</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+	<style>
+		.content-container {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 40vh;
+		}
+
+		.footer-container {
+			display: flex;
+			justify-content: flex-end;
+			padding: 5 20px;
+		}
+
+		table {
+			border-collapse: collapse;
+			width: 100%;
+		}
+
+		th,
+		td {
+			text-align: left;
+			padding: 8px;
+		}
+
+		th {
+			background-color: #f2f2f2;
+		}
+
+		tr:nth-child(even) {
+			background-color: #f2f2f2;
+		}
+	</style>
+</head>
+
+<body>
+	<header id="header">
+		<nav class="navbar bg-dark navbar-expand-md mb-3" data-bs-theme="dark">
+			<div class="container">
+				<span class="navbar-brand mb-0 h1">s20saforola - ProgInz MD1</span>
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a class="nav-link" href="/">Home</a>
+					</li>
+
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="driversDropdown" role="button"
+							data-bs-toggle="dropdown" aria-expanded="false">
+							Driver
+						</a>
+						<ul class="dropdown-menu" aria-labelledby="driversDropdown">
+							<li><a class="dropdown-item" href="/driver/showAll">All Drivers</a></li>
+							<li><a class="dropdown-item" href="/driver/addNew">Add Driver</a></li>
+						</ul>
+					</li>
+
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="driversDropdown" role="button"
+							data-bs-toggle="dropdown" aria-expanded="false">
+							Trip
+						</a>
+						<ul class="dropdown-menu" aria-labelledby="driversDropdown">
+							<li><a class="dropdown-item" href="/trip/showAll">All Trips</a></li>
+						</ul>
+					</li>
+
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="ticketsDropdown" role="button"
+							data-bs-toggle="dropdown" aria-expanded="false">
+							Ticket
+						</a>
+						<ul class="dropdown-menu" aria-labelledby="driversDropdown">
+							<li><a class="dropdown-item" href="/ticket/showAll">All Tickets</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+
+	<div class="container">
+		<h2>All Trips</h2>
+		<form class="mb-3" action="#" method="get">
+			<label for="cityTitle">Filter by City:</label>
+			<input type="text" id="cityTitle" name="cityTitle">
+			<button type="submit" class="btn btn-primary">Filter</button>
+		</form>
+
+		<form class="mb-3" action="#" method="get">
+			<label for="driverTitle">Filter by Driver:</label>
+			<input type="text" id="driverTitle" name="driverTitle">
+			<button type="submit" class="btn btn-primary">Filter</button>
+		</form>
+
+		<table class="table table-striped">
+			<tr>
+				<th>Trip ID</th>
+				<th>Driver</th>
+				<th>Start Date</th>
+				<th>Duration</th>
+			</tr>
+			<tbody>
+				<tr th:each="trip : ${MyTrips}">
+					<td th:text="${trip.idtr}"></td>
+					<td th:text="${trip.driver.name} + ' ' + ${trip.driver.surname}"></td>
+					<td th:text="${trip.startDateTime}"></td>
+					<td th:text="${trip.duration}"></td>
+				</tr>
+			</tbody>
+		</table>
+		<a href="/trip/showAll/today" class="btn btn-danger">Show all today</a>
+	</div>
+
+
+	<footer class="mt-5 py-5" style="background-color: darkgreen; color: white;">
+		<div class="container">
+			<div class="footer-container">
+				<h4>Rolands Safonovs, VeA, 2023</h4>
+			</div>
+		</div>
+	</footer>
+</body>
+
+</html>

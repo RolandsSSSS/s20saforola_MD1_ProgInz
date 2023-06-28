@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import lv.venta.models.City;
 import lv.venta.models.Driver;
@@ -13,6 +14,7 @@ import lv.venta.models.Trip;
 import lv.venta.repos.IDriverRepo;
 import lv.venta.repos.ITripRepo;
 
+@Service
 public class TripService implements ITripService{
 	
 	@Autowired
@@ -26,7 +28,7 @@ public class TripService implements ITripService{
         this.tripRepo = tripRepo;
     }
 	
- 
+	@Override
 	public List<Trip> selectAllTrips(){
 		return (List<Trip>) tripRepo.findAll();
 	}
@@ -58,16 +60,16 @@ public class TripService implements ITripService{
 
 	@Override
 	public List<Trip> selectAllTripsToday() {
-		List<Trip> tripstoday = new ArrayList<>();
-		LocalDate now = LocalDate.now();
-		DateTimeFormatter myDateTimeFormatter = DateTimeFormatter.ofPattern("dd/mm/yyyy");
-		for(Trip trip : selectAllTrips()) {
-			LocalDate startDateTime = LocalDate.parse(trip.getStartDateTime(), myDateTimeFormatter);
-			if(startDateTime.equals(now)) {
-				tripstoday.add(trip);
-			}
-		}
-		return tripstoday;
+	    List<Trip> tripstoday = new ArrayList<>();
+	    LocalDate now = LocalDate.now();
+	    DateTimeFormatter myDateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+	    for (Trip trip : selectAllTrips()) {
+	        LocalDate startDateTime = LocalDate.parse(trip.getStartDateTime(), myDateTimeFormatter);
+	        if (startDateTime.isEqual(now)) {
+	            tripstoday.add(trip);
+	        }
+	    }
+	    return tripstoday;
 	}
 
 	@Override

@@ -18,5 +18,7 @@ public interface ITicketService {
 	float calculateIncomeOfCashierByCashierId(long idc);
 	
 	void insertNewTicketByTripId(long idtr, Ticket ticket);
+
+	List<Ticket> selectAllTickets();
 	
 }

@@ -4,12 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import lv.venta.models.Ticket;
 import lv.venta.models.Trip;
 import lv.venta.repos.ITicketRepo;
 import lv.venta.repos.ITripRepo;
 
+@Service
 public class TicketService implements ITicketService{
 	
 	@Autowired
@@ -20,6 +22,7 @@ public class TicketService implements ITicketService{
         this.ticketRepo = ticketRepo;
     }
 	
+	@Override
 	public List<Ticket> selectAllTickets() {
 		return (List<Ticket>) ticketRepo.findAll();
 	}
